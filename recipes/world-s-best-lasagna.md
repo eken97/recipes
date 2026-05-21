@@ -1,5 +1,7 @@
 ---
 title: World’s Best Lasagna
+title_de: Die beste Lasagne der Welt
+lang: en
 source: "https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/"
 image: "https://www.allrecipes.com/thmb/htylprTl3RuTsFquG9YtbU1pzy0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/23600-worlds-best-lasagna-DDMFS-4x3-1196-24c5401652934ffb96d3d94bc9fbe2d7.jpg"
 servings: 12
@@ -45,3 +47,37 @@ needs_review: false
 8. Repeat layers, and top with remaining mozzarella and Parmesan cheese. Cover with foil: to prevent sticking, either spray foil with cooking spray or make sure the foil does not touch the cheese.
 9. Bake in the preheated oven for 25 minutes. Remove the foil and bake for an additional 25 minutes.
 10. Let the lasagna rest at room temperature for about 15 minutes before cutting; this helps it set and firm up.
+
+## Ingredients (de)
+- 450 g milde italienische Salsiccia (Bratwurst)
+- 340 g mageres Rinderhackfleisch
+- 1/2 Tasse fein gehackte Zwiebel (ca. 80 g)
+- 2 Knoblauchzehen, zerdrückt
+- 1 Dose (ca. 800 g) gehackte Tomaten
+- 2 Dosen (je ca. 185 g) Tomatensauce
+- 2 Dosen (je ca. 170 g) Tomatenmark
+- 120 ml Wasser
+- 2 EL Zucker
+- 4 EL gehackte frische Petersilie, geteilt
+- 1,5 TL getrocknetes Basilikum
+- 1,5 TL Salz, geteilt, oder nach Geschmack
+- 1 TL italienische Kräutermischung
+- 0,5 TL Fenchelsamen
+- 0,25 TL gemahlener schwarzer Pfeffer
+- 12 Lasagneplatten
+- 450 g Ricotta
+- 1 Ei
+- 340 g Mozzarella, in Scheiben
+- ca. 75 g geriebener Parmesan
+
+## Steps (de)
+1. Alle Zutaten bereitstellen.
+2. Wurst, Hackfleisch, Zwiebel und Knoblauch in einem schweren Topf bei mittlerer Hitze gut anbraten, bis alles schön gebräunt ist.
+3. Gehackte Tomaten, Tomatensauce, Tomatenmark und Wasser einrühren. Mit Zucker, 2 EL Petersilie, Basilikum, 1 TL Salz, italienischer Kräutermischung, Fenchelsamen und Pfeffer würzen. Zugedeckt etwa 1 ½ Stunden köcheln lassen, dabei gelegentlich umrühren.
+4. Einen großen Topf mit leicht gesalzenem Wasser zum Kochen bringen. Die Lasagneplatten 8 bis 10 Minuten im sprudelnden Wasser garen. Abgießen und mit kaltem Wasser abschrecken.
+5. In einer Schüssel den Ricotta mit dem Ei, den restlichen 2 EL Petersilie und 1/2 TL Salz verrühren.
+6. Den Backofen auf 190 °C vorheizen.
+7. Zum Schichten etwa 1 ½ Tassen Fleischsauce auf dem Boden einer Auflaufform (ca. 23 x 33 cm) verteilen. 6 Lasagneplatten der Länge nach leicht überlappend darauflegen. Die Hälfte der Ricotta-Mischung darauf verstreichen. Mit 1/3 der Mozzarella-Scheiben belegen. 1 ½ Tassen Fleischsauce über den Mozzarella geben und mit 1/4 Tasse Parmesan bestreuen.
+8. Die Schichten wiederholen und mit dem restlichen Mozzarella und Parmesan abschließen. Mit Alufolie abdecken: Damit nichts kleben bleibt, die Folie einfetten oder so abdecken, dass sie den Käse nicht berührt.
+9. Im vorgeheizten Ofen 25 Minuten backen. Die Folie entfernen und weitere 25 Minuten backen.
+10. Die Lasagne vor dem Anschneiden etwa 15 Minuten bei Raumtemperatur ruhen lassen; so wird sie fester und lässt sich besser schneiden.

@@ -1,5 +1,7 @@
 ---
 title: Garlicky Lemon Hummus
+title_de: Knoblauch-Zitronen-Hummus
+lang: en
 source: ""
 image: ""
 servings: 6
@@ -26,3 +28,18 @@ needs_review: false
 2. Blend until thick and grainy, scraping down the sides as needed.
 3. With the processor running, drizzle in the cold water a little at a time until smooth and creamy.
 4. Taste, adjust salt and lemon, and serve drizzled with a little extra olive oil.
+
+## Ingredients (de)
+- 1 Dose (ca. 425 g) Kichererbsen, abgetropft und abgespült
+- 60 g Tahini (Sesammus)
+- 60 ml frischer Zitronensaft
+- 2 Knoblauchzehen
+- 2 EL Olivenöl
+- 0,5 TL Salz
+- 3 EL kaltes Wasser, bei Bedarf mehr
+
+## Steps (de)
+1. Kichererbsen, Tahini, Zitronensaft, Knoblauch, Olivenöl und Salz in eine Küchenmaschine geben.
+2. Cremig-körnig pürieren, dabei die Ränder bei Bedarf abschaben.
+3. Bei laufender Maschine das kalte Wasser nach und nach hinzufügen, bis die Masse glatt und cremig ist.
+4. Abschmecken, Salz und Zitrone anpassen und mit etwas Olivenöl beträufelt servieren.

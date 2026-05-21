@@ -56,6 +56,28 @@ body {
 }
 #search:focus { border-color: var(--accent); }
 
+.lang-switch {
+  display: flex;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  background: #fff;
+}
+.lang-btn {
+  border: none;
+  background: none;
+  color: var(--muted);
+  padding: 7px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.lang-btn:hover { color: var(--accent); }
+.lang-btn.active { background: var(--accent); color: #fff; }
+
 main { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
 .filters {
