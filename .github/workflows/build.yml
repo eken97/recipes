@@ -1,0 +1,70 @@
+name: Build & deploy recipe site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}     # manual "Run workflow" button
+  schedule:
+    - cron: "0 6 * * *"     # daily at 06:00 UTC — picks up new family submissions
+
+# Allow the workflow to commit imported recipes, open review issues, and deploy Pages.
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+# Never run two deploys at once.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install --no-audit --no-fund
+
+      # Pull new recipe links from the family Google Sheet (Phase B).
+      # Skipped on plain pushes; runs on the daily schedule and manual runs.
+      - name: Import family submissions
+        if: github.event_name != 'push'
+        env:
+          SHEET_CSV_URL: ${{ vars.SHEET_CSV_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: npm run import
+
+      - name: Build site data
+        run: npm run build
+
+      # Persist any newly imported recipes back to the repo.
+      # [skip ci] in the message stops this commit from re-triggering the workflow.
+      - name: Commit imported recipes
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add recipes data/processed-urls.json site/data.js
+          if git diff --cached --quiet; then
+            echo "No new recipes to commit."
+          else
+            git commit -m "Import family recipe submissions [skip ci]"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4
