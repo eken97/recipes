@@ -26,17 +26,28 @@ his machine install-free; he prefers asking Claude to do edits over running tool
   Diet/Difficulty/Time filters + detail view + Family-notes box), CI build/deploy.
   3 seed recipes live (lasagna = meat/hard/over-60, pancakes = vegetarian/easy/under-30,
   hummus = vegan/easy/under-30).
-- **Phase B — Family Google Form: not switched on yet.** All code exists
-  (`scripts/import-sheet.mjs`, the workflow's import/commit steps). Pending USER
-  actions: create the Google Form, link a Sheet, publish it as CSV, add repo variable
-  `SHEET_CSV_URL`, and set Workflow permissions to "Read and write". Steps are in
-  `README.md`.
+- **Phase B — Family Google Form: ✅ DONE & SWITCHED ON.** Repo variable
+  `SHEET_CSV_URL` is set (published responses-sheet CSV) and Workflow permissions are
+  "Read and write". Verified end-to-end: a test submission (German "Korma" recipe,
+  `added_by: eken`) was imported by the daily/dispatch workflow and is live. The Form's
+  columns are Timestamp/Recipe URL/Your name/Notes/Suggested tags (German account, so
+  the timestamp header is "Zeitstempel" — importer ignores it; column matching is fuzzy).
+- **Phase C — Bilingual EN/DE: ✅ DONE & DEPLOYED.** Site has an EN/DE toggle (remembers
+  choice in localStorage, defaults from browser language). All UI labels + each recipe's
+  title/ingredients/steps switch language. See "Bilingual" section below.
+- **Translation automation: PENDING.** USER chose a *scheduled* routine (Claude does a
+  periodic translation sweep) **plus** a manual trigger. Manual trigger works today
+  (USER asks Claude "translate the new recipes" → Claude runs the sweep below). The
+  hands-off *scheduled* part needs the `/schedule` skill (remote claude.ai routine);
+  first attempt failed to connect ("try again in a few minutes") — retry and test once.
 
 ## How the pipeline works
 
 1. `recipes/<slug>.md` — one Markdown file per recipe (YAML frontmatter for
    title/source/image/servings/time_minutes/tags/added_by/notes/needs_review; body has
-   `## Ingredients` and `## Steps`).
+   `## Ingredients` and `## Steps`). Bilingual fields are optional add-ons: `lang:`,
+   `title_<lang>:`, and `## Ingredients (<lang>)` / `## Steps (<lang>)` — see the
+   Bilingual section below.
 2. `scripts/extract.mjs` — fetch URL → parse JSON-LD Recipe → write a recipe `.md`.
    Derives tags: time bucket from total time; diet via `suitableForDiet` or an
    ingredient meat/seafood/animal word scan; difficulty via an ingredient/step/time
@@ -54,6 +65,38 @@ his machine install-free; he prefers asking Claude to do edits over running tool
 6. `.github/workflows/build.yml` — on push/dispatch/daily: `npm install` → (import, on
    schedule/dispatch only) → `npm run build` → (commit imported recipes, `[skip ci]`) →
    deploy `site/` to Pages.
+
+## Bilingual (EN/DE) — data model & the translation sweep
+
+**How a recipe stores two languages** (in `recipes/<slug>.md`):
+- Frontmatter `lang:` = the *source* language the recipe was written/imported in
+  (`en` or `de`; defaults to `en` if absent).
+- The unsuffixed `title:` + `## Ingredients` + `## Steps` hold the **source-language**
+  content (as the extractor writes it).
+- The translation lives in `title_<other>:` (e.g. `title_de:`) plus
+  `## Ingredients (<other>)` and `## Steps (<other>)` sections (e.g. `## Ingredients (de)`).
+- Example: a German-source recipe has `lang: de`, German in the base fields, and
+  `title_en:` + `## Ingredients (en)` + `## Steps (en)` for the English version.
+- `build.mjs` emits per-language objects: `title:{en,de}`, `ingredients:{en,de}`,
+  `steps:{en,de}`. If a language is missing it **falls back to the other** so nothing
+  renders blank before translation. `app.js` `tr()`/`trList()` also tolerate the old
+  single-string/array shape, so mixed data never breaks the page.
+- Family notes are NOT translated (kept as a single string) — out of scope for v1.
+- Units: when translating, convert sensibly (US cups/lb → metric for DE; keep metric
+  for EN translations of DE recipes) and use EL/TL ↔ tbsp/tsp. The "Original recipe ↗"
+  link is the source of truth, so approximate ("ca." / "approx.") is fine.
+
+**The translation sweep** (what "translate the new recipes" means — same steps whether
+run manually by Claude now or by a future scheduled routine):
+1. For each `recipes/*.md`, check whether it has BOTH languages. A recipe needs work if
+   it lacks `title_<other>` or the `## Ingredients (<other>)` / `## Steps (<other>)`
+   sections for the language opposite its `lang:`.
+2. For each one missing a side: detect the actual source language, set `lang:` correctly
+   if not already, then add the missing `title_<lang>` + `## Ingredients (<lang>)` +
+   `## Steps (<lang>)` by translating the existing content.
+3. Regenerate `site/data.js` to match (by hand — Node isn't installed locally; CI also
+   regenerates it on every build).
+4. Commit + push. CI redeploys in ~1 min.
 
 ## Environment facts (this Windows machine)
 
@@ -77,8 +120,11 @@ User says "add this recipe: <link>". Claude:
 1. Fetches the page and extracts title/image/servings/time/ingredients/steps from the
    JSON-LD (same logic as `extract.mjs`).
 2. Writes `recipes/<slug>.md` and adds the matching object to `site/data.js`
-   (sorted by title), `needs_review: false` unless ingredients/steps are missing.
-3. `git add … && git commit && git push`. Live in ~1 minute.
+   (sorted by `title.en`), `needs_review: false` unless ingredients/steps are missing.
+   Ideally add both languages right away (set `lang:` + the `title_<other>` / section
+   translations); otherwise the next translation sweep will fill the missing side.
+3. `git add … && git commit && git push`. Live in ~1 minute. (Heads up: the daily/Form
+   workflow may have committed imported recipes — `git pull --rebase` if push is rejected.)
 
 ## Key decisions & gotchas (don't relearn the hard way)
 
@@ -98,11 +144,14 @@ User says "add this recipe: <link>". Claude:
 
 ## Suggested next steps
 
-- (Optional) Add more real recipes — just ask.
-- Turn on **Phase B** (Google Form) when ready — follow README Phase B steps; Claude can
-  guide and verify.
+- **Finish translation automation:** retry `/schedule` to set up the hands-off routine
+  (prompt it to run the "translation sweep" above on a cadence, e.g. weekly, + push).
+  Test it once to confirm the remote agent can reach/push to the repo. Until then, the
+  manual trigger ("translate the new recipes") works.
+- (Optional) Add more real recipes — just ask. New imports arrive in one language and
+  get their second language on the next sweep.
 - (Optional, later) custom domain, a "needs review" filter chip surfaced in the UI,
-  print-friendly recipe view.
+  print-friendly recipe view, translate family notes too.
 
 ## Pointers
 

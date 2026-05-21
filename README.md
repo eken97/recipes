@@ -10,8 +10,9 @@ your family can add their own via a Google Form.
 
 Nothing is installed on your computer. The tools run for free on GitHub's servers.
 
-**Status:** Phase A is **live** (site deployed, auto-rebuilds on every push and daily).
-Phase B (family Google Form) is **built but not yet switched on** — see below.
+**Status:** The site is **live** and rebuilds itself on every push and daily. The family
+**Google Form is switched on** — submitted links are imported automatically. The site is
+**bilingual (English / German)** with a toggle in the top corner.
 
 ---
 
@@ -71,6 +72,19 @@ recipes that need a manual fill-in.
 > repo instead and stay within GitHub's free tier.
 
 ---
+
+## Languages (English / German)
+
+The site has an **EN / DE** toggle in the top-right corner. It switches both the buttons
+and labels *and* each recipe's title, ingredients, and steps, and it remembers your
+choice. New recipes (including family submissions) arrive in whatever language they were
+written in and show that language in both modes until a translation is added.
+
+Translations are done **by Claude** (free — no paid translation service):
+- **Anytime you want:** ask Claude *"translate the new recipes"* and it adds the missing
+  language to every recipe and republishes.
+- **Automatically (optional):** a scheduled Claude routine can do that sweep on its own
+  on a regular cadence. (Set up with `/schedule`.)
 
 ## How it works
 
