@@ -6,8 +6,12 @@ searchable and filterable by **diet**, **difficulty**, and **cooking time**, and
 your family can add their own via a Google Form.
 
 **Live site:** https://eken97.github.io/recipes/
+**Repo:** https://github.com/eken97/recipes
 
 Nothing is installed on your computer. The tools run for free on GitHub's servers.
+
+**Status:** Phase A is **live** (site deployed, auto-rebuilds on every push and daily).
+Phase B (family Google Form) is **built but not yet switched on** — see below.
 
 ---
 
@@ -27,15 +31,16 @@ If a site doesn't publish clean recipe data, the recipe is still saved but marke
 
 ---
 
-## One-time setup (Phase A — your own site)
+## One-time setup (Phase A — ✅ already done for this repo)
+
+Kept here for reference / re-creating elsewhere:
 
 1. Create a free **GitHub account** and a new **repository** (e.g. `recipes`).
 2. Upload this project to it (Claude can do this for you).
 3. In the repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-4. Push once. The **Actions** tab will build and publish the site to
+   (A token can't enable Pages automatically — this one click is required.)
+4. Push once. The **Actions** tab builds and publishes the site to
    `https://USERNAME.github.io/recipes/`.
-
-That's it — your site is live and free.
 
 ---
 
@@ -51,6 +56,9 @@ That's it — your site is live and free.
    Copy the published `…/pub?output=csv` link.
 4. In your GitHub repo: **Settings → Secrets and variables → Actions → Variables →
    New repository variable**, name `SHEET_CSV_URL`, paste the CSV link.
+5. **Settings → Actions → General → Workflow permissions → "Read and write
+   permissions" → Save.** This lets the daily job save imported recipes back to
+   the repo and open review issues.
 
 From then on, the site checks the sheet **once a day** (and whenever you click
 **Run workflow** in the Actions tab), imports any new links, and rebuilds itself.
