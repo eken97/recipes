@@ -1,5 +1,7 @@
 ---
 title: Rezept für indisches vegetarisches Korma (vegetarisches Gemüse Curry)
+title_en: Indian Vegetarian Korma (Vegetable Curry)
+lang: de
 source: 'https://www.fernschmecker.blog/korma/'
 image: >-
   https://www.fernschmecker.blog/wp-content/uploads/2021/06/indisches-korma-rezept.jpg
@@ -47,3 +49,38 @@ needs_review: false
 8. Die vorgekochten Kartoffel und Karotten hinzugeben und umrühren.
 9. Danach die Tomaten und den gewaschenen Blattspinat hinzugeben. Gut unterrühren, die Pfanne abdecken und bei mittlerer Hitze 10 bis 15 Minuten köcheln lassen.
 10. Wenn die Kartoffeln und die Karotten weich sind, ist das Korma fertig. Das Korma schmeckt am Besten mit frischem Naan oder Basmatireis.
+
+## Ingredients (en)
+- 1 onion (peeled, roughly diced)
+- 3 garlic cloves (peeled)
+- 2.5 cm ginger (roughly chopped)
+- 35 g cashews
+- 120 ml water
+- 2 tsp curry powder
+- 1 tsp turmeric (ground)
+- 1 tsp garam masala
+- ½ tsp cinnamon (ground)
+- ½ tsp coriander (ground)
+- ½ tsp pepper (ground)
+- ¼ tsp cardamom (ground)
+- ½ tsp salt
+- 2 tsp vegetable oil
+- 120 ml coconut milk
+- 300 ml yogurt
+- 1½ tsp brown sugar (or white)
+- 2 tomatoes (diced)
+- 2–3 potatoes (diced, lightly pre-cooked)
+- 2 carrots (sliced, lightly pre-cooked)
+- 1 bunch leaf spinach (washed)
+
+## Steps (en)
+1. Peel the onion, garlic, and ginger and cut into rough pieces.
+2. Put the onion, garlic, ginger, cashews, and water into a food processor and blend into a paste.
+3. Heat the vegetable oil in a large pan (or wok).
+4. While the oil heats up, prepare the spice mix. (If you like it spicy, you can also mix in some chilli powder or cook a chilli pepper along with it.)
+5. Add the prepared paste to the hot pan (watch out for splattering oil).
+6. Stir the spice mix into the paste and roast for 2–3 minutes.
+7. Stir in the yogurt, coconut milk, and brown sugar.
+8. Add the pre-cooked potatoes and carrots and stir.
+9. Then add the tomatoes and the washed spinach. Stir well, cover the pan, and simmer over medium heat for 10 to 15 minutes.
+10. Once the potatoes and carrots are soft, the korma is done. It tastes best with fresh naan or basmati rice.
