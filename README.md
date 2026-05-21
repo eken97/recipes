@@ -5,7 +5,7 @@ and it keeps just the **ingredients** and **steps** — no blog story. Recipes a
 searchable and filterable by **diet**, **difficulty**, and **cooking time**, and
 your family can add their own via a Google Form.
 
-**Live site:** _(add your `https://USERNAME.github.io/REPO/` link here after setup)_
+**Live site:** https://eken97.github.io/recipes/
 
 Nothing is installed on your computer. The tools run for free on GitHub's servers.
 
