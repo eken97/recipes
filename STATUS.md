@@ -1,7 +1,7 @@
 # Where we're currently at — Recipe site
 
 _Handoff notes so a new chat/context can continue without re-deriving everything._
-_Last updated: 2026-05-21._
+_Last updated: 2026-05-22._
 
 ## What this project is
 
@@ -19,6 +19,12 @@ his machine install-free; he prefers asking Claude to do edits over running tool
 - **Site (LIVE):** https://eken97.github.io/recipes/
 - **Repo:** https://github.com/eken97/recipes (public)
 - Auto-deploys via GitHub Actions on every push to `main` and daily at 06:00 UTC.
+- **5 recipes live, all bilingual EN/DE:**
+  - `garlicky-lemon-hummus` (en source) — vegan/easy/under-30
+  - `good-old-fashioned-pancakes` (en source) — vegetarian/easy/under-30
+  - `rezept-fu-r-indisches-vegetarisches-korma-vegetarisches-gemu` (de source, Form, by eken) — vegetarian/hard/30-60
+  - `vegetarische-one-pot-lasagne-mit-linsen` (de source, Form, by Elias) — vegetarian/hard/30-60
+  - `world-s-best-lasagna` (en source) — meat/hard/over-60
 
 ## Status by phase
 
@@ -28,10 +34,11 @@ his machine install-free; he prefers asking Claude to do edits over running tool
   hummus = vegan/easy/under-30).
 - **Phase B — Family Google Form: ✅ DONE & SWITCHED ON.** Repo variable
   `SHEET_CSV_URL` is set (published responses-sheet CSV) and Workflow permissions are
-  "Read and write". Verified end-to-end: a test submission (German "Korma" recipe,
-  `added_by: eken`) was imported by the daily/dispatch workflow and is live. The Form's
-  columns are Timestamp/Recipe URL/Your name/Notes/Suggested tags (German account, so
-  the timestamp header is "Zeitstempel" — importer ignores it; column matching is fuzzy).
+  "Read and write". Working end-to-end: **2 Form submissions imported so far** (korma
+  via the daily/dispatch workflow; one-pot lasagne imported by Claude directly — see
+  below). The Form's columns are Timestamp/Recipe URL/Your name/Notes/Suggested tags
+  (German account, so the timestamp header is "Zeitstempel" — importer ignores it;
+  column matching is fuzzy). `data/processed-urls.json` currently lists both URLs.
 - **Phase C — Bilingual EN/DE: ✅ DONE & DEPLOYED.** Site has an EN/DE toggle (remembers
   choice in localStorage, defaults from browser language). All UI labels + each recipe's
   title/ingredients/steps switch language. See "Bilingual" section below.
@@ -125,6 +132,18 @@ User says "add this recipe: <link>". Claude:
    translations); otherwise the next translation sweep will fill the missing side.
 3. `git add … && git commit && git push`. Live in ~1 minute. (Heads up: the daily/Form
    workflow may have committed imported recipes — `git pull --rebase` if push is rejected.)
+
+**Importing a Form submission directly (preferred over waiting for the daily job):**
+Elias prefers Claude just does it. Fetch the published sheet CSV (the `SHEET_CSV_URL`,
+also in `.github`/repo variables), find any Recipe URL **not** in
+`data/processed-urls.json`, then for each: extract → write `recipes/<slug>.md` (with both
+languages) → add to `site/data.js` → **append the URL to `data/processed-urls.json`** (so
+the next scheduled import doesn't create a duplicate) → commit + push.
+
+**Encoding gotcha (German pages):** when extracting with `py`, printing umlauts to the
+Windows console shows `�` — that's display only, the data is fine. Write the `.md` with
+Python `open(..., encoding="utf-8")` and then re-Read it with the Read tool to verify the
+real characters (ö/ü/ä/ß). Don't "fix" mojibake you only saw in console output.
 
 ## Key decisions & gotchas (don't relearn the hard way)
 
