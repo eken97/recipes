@@ -3,12 +3,19 @@ window.RECIPES = [
   {
     "slug": "garlicky-lemon-hummus",
     "lang": "en",
-    "title": { "en": "Garlicky Lemon Hummus", "de": "Knoblauch-Zitronen-Hummus" },
+    "title": {
+      "en": "Garlicky Lemon Hummus",
+      "de": "Knoblauch-Zitronen-Hummus"
+    },
     "source": "",
     "image": "",
     "servings": 6,
     "time_minutes": 10,
-    "tags": { "diet": "vegan", "difficulty": "easy", "time_bucket": "under-30" },
+    "tags": {
+      "diet": "vegan",
+      "difficulty": "easy",
+      "time_bucket": "under-30"
+    },
     "added_by": "Family kitchen",
     "notes": "Add a pinch of cumin if you like it earthier; thin with extra water for a smoother dip.",
     "needs_review": false,
@@ -50,12 +57,19 @@ window.RECIPES = [
   {
     "slug": "good-old-fashioned-pancakes",
     "lang": "en",
-    "title": { "en": "Good Old-Fashioned Pancakes", "de": "Klassische Pfannkuchen" },
+    "title": {
+      "en": "Good Old-Fashioned Pancakes",
+      "de": "Klassische Pfannkuchen"
+    },
     "source": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
     "image": "https://www.allrecipes.com/thmb/ywrODZNVX6SDdyA3XqkgeqBF1M4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/21014-good-old-fashioned-pancakes-VAT-004-4x3-02-d6ce3b61def840fcaf40a43f805b733e.jpg",
     "servings": 8,
     "time_minutes": 20,
-    "tags": { "diet": "vegetarian", "difficulty": "easy", "time_bucket": "under-30" },
+    "tags": {
+      "diet": "vegetarian",
+      "difficulty": "easy",
+      "time_bucket": "under-30"
+    },
     "added_by": "",
     "notes": "",
     "needs_review": false,
@@ -99,12 +113,19 @@ window.RECIPES = [
   {
     "slug": "rezept-fu-r-indisches-vegetarisches-korma-vegetarisches-gemu",
     "lang": "de",
-    "title": { "en": "Indian Vegetarian Korma (Vegetable Curry)", "de": "Rezept für indisches vegetarisches Korma (vegetarisches Gemüse Curry)" },
+    "title": {
+      "en": "Indian Vegetarian Korma (Vegetable Curry)",
+      "de": "Rezept für indisches vegetarisches Korma (vegetarisches Gemüse Curry)"
+    },
     "source": "https://www.fernschmecker.blog/korma/",
     "image": "https://www.fernschmecker.blog/wp-content/uploads/2021/06/indisches-korma-rezept.jpg",
     "servings": 3,
     "time_minutes": 40,
-    "tags": { "diet": "vegetarian", "difficulty": "hard", "time_bucket": "30-60" },
+    "tags": {
+      "diet": "vegetarian",
+      "difficulty": "hard",
+      "time_bucket": "30-60"
+    },
     "added_by": "eken",
     "notes": "",
     "needs_review": false,
@@ -186,12 +207,19 @@ window.RECIPES = [
   {
     "slug": "vegetarische-one-pot-lasagne-mit-linsen",
     "lang": "de",
-    "title": { "en": "Vegetarian One-Pot Lasagne with Lentils", "de": "Vegetarische One Pot Lasagne mit Linsen" },
+    "title": {
+      "en": "Vegetarian One-Pot Lasagne with Lentils",
+      "de": "Vegetarische One Pot Lasagne mit Linsen"
+    },
     "source": "https://heyfoodsister.de/rezepte/vegetarische-one-pot-lasagne/",
     "image": "https://heyfoodsister.de/wp-content/uploads/2024/01/OnePotLasagne8925-2-scaled.jpg",
     "servings": 4,
     "time_minutes": 40,
-    "tags": { "diet": "vegetarian", "difficulty": "hard", "time_bucket": "30-60" },
+    "tags": {
+      "diet": "vegetarian",
+      "difficulty": "hard",
+      "time_bucket": "30-60"
+    },
     "added_by": "Elias",
     "notes": "Works with Ricotta too. Also very nice to fry some spinach + garlic and add to the Ricotta.",
     "needs_review": false,
@@ -269,12 +297,19 @@ window.RECIPES = [
   {
     "slug": "world-s-best-lasagna",
     "lang": "en",
-    "title": { "en": "World’s Best Lasagna", "de": "Die beste Lasagne der Welt" },
+    "title": {
+      "en": "World’s Best Lasagna",
+      "de": "Die beste Lasagne der Welt"
+    },
     "source": "https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/",
     "image": "https://www.allrecipes.com/thmb/htylprTl3RuTsFquG9YtbU1pzy0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/23600-worlds-best-lasagna-DDMFS-4x3-1196-24c5401652934ffb96d3d94bc9fbe2d7.jpg",
     "servings": 12,
     "time_minutes": 195,
-    "tags": { "diet": "meat", "difficulty": "hard", "time_bucket": "over-60" },
+    "tags": {
+      "diet": "meat",
+      "difficulty": "hard",
+      "time_bucket": "over-60"
+    },
     "added_by": "",
     "notes": "",
     "needs_review": false,
